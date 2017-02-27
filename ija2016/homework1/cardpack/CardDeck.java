@@ -1,23 +1,26 @@
+package ija.ija2016.homework1.cardpack;
+
 public class CardDeck{
 	protected int size;	
 	protected Card[] cardArray;
 	
-	CardDeck(int size){
+	public CardDeck(int size){
 		this.size=size;
+		cardArray = new Card[size];
 	}
 	public static CardDeck createStandardDeck(){
 		CardDeck deck = new CardDeck(52);
-		for(int i = 0; i<13; i++){		
-			deck.cardArray[i] = new Card(Card.Color.CLUBS,i);
+		for(int i = 1; i<=13; i++){			
+			deck.cardArray[i-1] = new Card(Card.Color.CLUBS,i);
 		}
-		for(int i = 0; i<13; i++){		
-			deck.cardArray[i+13] = new Card(Card.Color.DIAMONDS,i);
+		for(int i = 1; i<=13; i++){		
+			deck.cardArray[i+12] = new Card(Card.Color.DIAMONDS,i);
 		}
-		for(int i = 0; i<13; i++){		
-			deck.cardArray[i+26] = new Card(Card.Color.HEARTS,i);
+		for(int i = 1; i<=13; i++){		
+			deck.cardArray[i+25] = new Card(Card.Color.HEARTS,i);
 		}
-		for(int i = 0; i<13; i++){		
-			deck.cardArray[i+39] = new Card(Card.Color.SPADES,i);
+		for(int i = 1; i<=13; i++){		
+			deck.cardArray[i+38] = new Card(Card.Color.SPADES,i);
 		}
 		return deck;
 	}
@@ -30,7 +33,11 @@ public class CardDeck{
 	}
 	public Card pop(){
 		this.size--;
-		return cardArray[size+1];
+		return cardArray[size];
 	}
+	
+
+	
+	
 	
 }
